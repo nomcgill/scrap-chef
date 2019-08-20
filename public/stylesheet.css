@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: sans-serif;
+    max-width: 900px;
+
+}
+
+main {
+    font-family: 'Questrial', sans-serif;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding: 10px;
+}
+
+.banner {
+    width: 100%;
+    text-align: center;
+}
+
+.banner * {
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+#tooltip {
+    position: absolute;
+    top: 4%;
+    right: 6%;
+}
+
+nav {
+    font-family: 'Questrial', sans-serif;
+    text-align: center;
+}
+
+nav * {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    /* text-align: center; */
+}
+
+nav li:hover {
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+.folder-menu-list {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    grid-column-gap: 0px;
+    width: 90%;
+    /* text-align: center; */
+}
+
+.folder-menu-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    text-align:center;
+}
+
+.menu {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 85%;
+    height: 50%;
+    text-align: center;
+    max-width: 450px;
+    border: solid 2px gray;
+    overflow: auto;
+}
+
+.my-kitchen {
+    display: none;
+}
+
+.my-kitchen ul {
+    margin: 0;
+    padding-left: 0px;
+}
+
+li, 
+li * {
+    text-overflow: clip;
+    white-space: nowrap;
+    /* max-width: 90%; */
+}
+
+li * {
+    max-width: 100%;
+}
+
+li:hover {
+    background-color: rgb(255, 115, 0);
+    cursor: pointer;
+}
+
+.my-kitchen li {
+    height: 50px;
+    text-align: left;
+    margin: 0;
+    font-size: 1.2em;
+    width: 100%;
+    border-bottom: dotted 1px rgb(202, 202, 202);
+    line-height: 50px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.my-meals ul {
+    padding-left: 15px;
+}
+
+.my-meals li {
+    height: 90px;
+    text-align: left;
+    border-bottom: dotted 1px rgb(202, 202, 202);
+}
+
+.my-meals li * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.meals p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+.example-picture {
+    height: 90px;
+    width: 90px;
+    background-color: green;
+    border: solid 1px black;
+    border-top: 0;
+}
+
+.meals:first-child .example-picture {
+    border-top: solid 1px black;
+}
+
+
+@media all and (min-width: 640px) {
+    main {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        padding-top: 0;
+    }
+
+    .grid2 {
+        background-color: orangered;
+    }
+    .my-meals {
+        background-color: white;
+    }
+
+    .folder-menu-list-item {
+        border-bottom: none;
+    }
+
+    .profile {
+        border: solid 1px black;
+    }
+
+    .profile:hover, 
+    .profile a:hover {
+        background-color: orangered;
+        cursor:pointer;
+    }
+
+    nav li:hover,
+    nav a {
+        cursor: default;
+        background-color: unset;
+    }
+
+    nav li:nth-child(2),
+    nav li:nth-child(2) a {
+        background-color: orangered;
+        color: white;
+    }
+
+    .my-kitchen {
+        display: unset;
+        border-right: solid 4px black;
+    }
+}
