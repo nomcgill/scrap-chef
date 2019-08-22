@@ -7,37 +7,46 @@
     <title>Scrap Chef</title>
     </head>
   <body>
-    <div>
-        <div role="banner" class="banner">
-            <h1>SCRAP CHEF</h1>
-            <div id="tooltip">?</div>
+      <div>
+          <div role="banner" class="banner">
+              <img src="./ChefsHat.png" alt="Chef's Hat Logo">
+              <h1>SCRAP CHEF</h1>
+              <div id="tooltip">?</div>
         </div>
         <div>
             <nav class="folder-menu">
+                <div class="folder-menu-list-item profile">
+                    <a href="/profile">PROFILE</a>
+                </div>
                 <ul class="folder-menu-list">
-                    <li class="folder-menu-list-item">
+                    <li class="folder-menu-list-item kitchen">
                         <a href="/inbox">KITCHEN</a>
                     </li>
-                    <li class="folder-menu-list-item">
+                    <li class="folder-menu-list-item meals">
                         <a href="/spam">MEALS</a>
-                    </li>
-                    <li class="folder-menu-list-item profile">
-                        <a href="/profile">PROFILE</a>
                     </li>
                 </ul>
             </nav>
         </div>
         <main>
-            <div class="my-kitchen menu">
-                <ul>
-                    <li class="ingredients">Eggs</li>
-                    <li class="ingredients">Bread</li>
-                    <li class="ingredients">Milk</li>
-                    <li class="ingredients">Brown Sugar</li>
-                    <li class="ingredients">Sausage Pepperoni</li>
-                </ul>
+            <div class="kitchen-side">
+                <div class="my-kitchen menu">
+                    <ul>
+                        <li class="ingredients">Eggs</li>
+                        <li class="ingredients">Bread</li>
+                        <li class="ingredients">Milk</li>
+                        <li class="ingredients">Brown Sugar</li>
+                        <li class="ingredients">Sausage Pepperoni Pizza with Cucumbers</li>
+                        <li class="ingredients">Brown Sugar</li>
+                        <li class="ingredients">Brown Sugar</li>
+                    </ul>
+                </div>
+                <form name="add-ingredient">
+                    <input type="text" class="ingredient-input" maxlength="25" name="ingredient" placeholder="What else is in your kitchen...?">
+                    <button type="button" name="Add">Add</button>
+                </form>
             </div>
-            <div class="grid2">
+            <div class="meal-side">
                 <div class="my-meals menu">
                     <ul>
                         <li class="meals"><div class="example-picture"></div><p>Pork Dumplings</p></li>
@@ -46,6 +55,13 @@
                         <li class="meals"><div class="example-picture"></div><p>Quinoa</p></li>
                         <li class="meals"><div class="example-picture"></div><p>Caprese Salad</p></li>
                     </ul>
+                </div>
+                <div class="recipe-info">
+                    <div class="recipe-info-left">
+                        <p><u>Your kitchen still needs :</u></p>
+                        <p class ="missing-ingredients">Nothing. Nothing. Nothing. No. Nothing. Nothing. Nothing. No. </p>
+                    </div>
+                    <button type="button" name="Recipe">Get Recipe</button>
                 </div>
             </div>
         </main>
