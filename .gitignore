@@ -1,3 +1,4 @@
 To-Do.docx
 *.tmp
 ~*
+.travis.yml
