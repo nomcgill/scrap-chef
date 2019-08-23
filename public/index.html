@@ -1,71 +1,33 @@
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Questrial&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <title>Scrap Chef</title>
-    </head>
-  <body>
-      <div>
-          <div role="banner" class="banner">
-              <img src="./ChefsHat.png" alt="Chef's Hat Logo">
-              <h1>SCRAP CHEF</h1>
-              <div id="tooltip">?</div>
-        </div>
-        <div>
-            <nav class="folder-menu">
-                <div class="folder-menu-list-item profile">
-                    <a href="/profile">PROFILE</a>
-                </div>
-                <ul class="folder-menu-list">
-                    <li class="folder-menu-list-item kitchen">
-                        <a href="/inbox">KITCHEN</a>
-                    </li>
-                    <li class="folder-menu-list-item meals">
-                        <a href="/spam">MEALS</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <main>
-            <div class="kitchen-side">
-                <div class="my-kitchen menu">
-                    <ul>
-                        <li class="ingredients">Eggs</li>
-                        <li class="ingredients">Bread</li>
-                        <li class="ingredients">Milk</li>
-                        <li class="ingredients">Brown Sugar</li>
-                        <li class="ingredients">Sausage Pepperoni Pizza with Cucumbers</li>
-                        <li class="ingredients">Brown Sugar</li>
-                        <li class="ingredients">Brown Sugar</li>
-                    </ul>
-                </div>
-                <form name="add-ingredient">
-                    <input type="text" class="ingredient-input" maxlength="25" name="ingredient" placeholder="What else is in your kitchen...?">
-                    <button type="button" name="Add">Add</button>
-                </form>
-            </div>
-            <div class="meal-side">
-                <div class="my-meals menu">
-                    <ul>
-                        <li class="meals"><div class="example-picture"></div><p>Pork Dumplings</p></li>
-                        <li class="meals"><div class="example-picture"></div><p>Mexican Pizza</p></li>
-                        <li class="meals"><div class="example-picture"></div><p>Bruschetta Chicken Pasta Bowl from Olive Garden</p></li>
-                        <li class="meals"><div class="example-picture"></div><p>Quinoa</p></li>
-                        <li class="meals"><div class="example-picture"></div><p>Caprese Salad</p></li>
-                    </ul>
-                </div>
-                <div class="recipe-info">
-                    <div class="recipe-info-left">
-                        <p><u>Your kitchen still needs :</u></p>
-                        <p class ="missing-ingredients">Nothing. Nothing. Nothing. No. Nothing. Nothing. Nothing. No. </p>
-                    </div>
-                    <button type="button" name="Recipe">Get Recipe</button>
-                </div>
-            </div>
-        </main>
-    </div>
-  <script type="text/javascript" src="/static/js/bundle.js"></script>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Questrial&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <title>Scrap Chef</title>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-</body></html>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+  </body>
+</html>

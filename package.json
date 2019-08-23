@@ -1,19 +1,42 @@
 {
   "name": "scrap-chef",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A react project for brainstorming dishes with ingredients you already have.",
+  "main": ".public/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nomcgill/scrap-chef.git"
   },
-  "author": "",
+  "author": "Nolan McGill",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nomcgill/scrap-chef/issues"
   },
-  "homepage": "https://github.com/nomcgill/scrap-chef#readme"
+  "homepage": "https://github.com/nomcgill/scrap-chef#readme",
+  "dependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.1",
+    "react-test-renderer": "^16.9.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
