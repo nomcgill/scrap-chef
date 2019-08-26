@@ -1,7 +1,9 @@
 import React from 'react';
 
-// import NumberInput from './number-input';
-// import Output from './output';
+// import Tooltip from './tooltip';
+// import Nav from './nav';
+// import Kitchen from './kitchen';
+// import Meals from './meals';
 
 export default class Chef extends React.Component {
     constructor(props) {
@@ -16,10 +18,13 @@ export default class Chef extends React.Component {
     
  
   
-    render() {
-        console.log("CHEF rendered!")
+    render() {   
         return (
-            <h1>SCRAP CHEF</h1>
+            <div roleName="banner" className="banner">
+                <img src="https://nolanmcgill.files.wordpress.com/2019/08/chefshat.png" alt="Chef's Hat Logo"></img>
+                <h1>SCRAP CHEF</h1>
+                <div id="tooltip">?</div>
+            </div>
         );
     }
 }
