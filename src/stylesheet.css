@@ -1,3 +1,4 @@
+
 /* .kitchen-side {
     display: none;
 } */
@@ -9,6 +10,15 @@
 * {
     box-sizing: border-box;
     font-family: 'Questrial', sans-serif;
+    cursor: default;
+}
+
+input {
+    cursor: text;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .meal-side {
@@ -47,7 +57,9 @@
 }
 
 .recipe-info button:hover,
-.kitchen-side form button:hover {
+.kitchen-side form button:hover,
+.profile-page button:hover {
+    color: white;
     background-color: rgb(173, 104, 35);
     border: solid 1px white;
 }
@@ -80,8 +92,8 @@
 
 .kitchen-side form button {
     border: solid 1px peru;
-    padding: 10px;
     background-color:rgb(121, 64, 0);
+    padding: 10px;
     color: white;
 } 
 
@@ -141,6 +153,7 @@ h1 {
     font-size: .95em;
     padding: 4px 10px;
     border-radius: 40px;
+    /* border: solid 1px black; */
     color: white;
 }
 
@@ -260,6 +273,13 @@ li:hover {
     padding-left: 10px;
 }
 
+.remove-ingredient {
+    font-size: 1.35em;
+    float:right;
+    margin-right: 15px;
+    display: none;
+}
+
 .my-meals li {
     height: 90px;
     width: 100%;
@@ -300,6 +320,111 @@ li:hover {
 ::-webkit-scrollbar-thumb {
     border-radius: 0;
     background: #b0b0b0;
+}
+
+#overlay-back {
+    position   : absolute;
+    top        : 0;
+    left       : 0;
+    width      : 100%;
+    height     : 100%;
+    background : #000;
+    opacity    : 0.6;
+    filter     : alpha(opacity=60);
+    z-index    : 5;
+    display    : none;
+}
+
+.logged-in {
+    align-items: center;
+    justify-content: center;
+    /* vertical-align: middle; */
+}
+
+.logged-in > * {
+    display: block;
+}
+
+.logged-in button {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.logged-in p:first-child {
+    font-size: 1.15em;
+}
+
+.logged-in p,
+.logged-in button {
+    font-size: 1.3em;
+}
+
+.chef {
+    margin: 30px;
+}
+
+#close-profile {
+    position: absolute;
+    color: black;
+    top: 3%;
+    right: 4%;
+    font-size: 1.8em;
+    cursor: pointer;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+#close-profile:hover {
+    color: white;
+}
+
+.profile-page {
+    color: white;
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 250px;
+    margin-left: -175px;
+    margin-top: -125px;
+    background-color: rgb(189, 119, 50);
+    padding: 20px;
+    text-align: center;
+    border: solid 2px black;
+    box-shadow: 10px 10px 5px rgba(54, 54, 54, 0.664);
+}
+
+.profile-page button {
+    color: white;
+    border: solid 1px peru;
+    background-color:rgb(121, 64, 0);
+}
+
+.profile-page h2 {
+    font-size: 1.6em;
+}
+
+.logged-out input {
+    display: block;
+    width: 45%;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    padding-left: 4px;
+    text-align: center;
+}
+
+.log-in-options {
+    margin: 1.2em;
+    display: inline-flex;
+}
+
+.log-in-options * {
+    font-size: 1.2em;
+    margin: 4px;
+    line-height: 30px;
+    padding: 5px 8px 5px 8px;
 }
 
 @media all and (min-width: 800px) {
@@ -384,6 +509,15 @@ li:hover {
 
     .meal-side, .kitchen-side {
         height: 100%;
+    }
+
+    .profile-page {
+        width: 450px;
+        margin-left: -225px;
+    }
+
+    .profile-page input {
+        text-align: left;
     }
 }
 

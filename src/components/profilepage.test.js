@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Recipe from './recipe';
+import ProfilePage from './profilepage';
 
-describe('<Recipe />', () => {
+describe('<ProfilePage />', () => {
     it('Renders without crashing', () => {
-      shallow(<Recipe />);
+      shallow(<ProfilePage />);
     });
 });
