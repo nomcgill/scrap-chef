@@ -1,16 +1,8 @@
 import React from 'react';
 
-export default class LoggedOut extends React.Component {
-    // addCard(text) {
-    //     this.props.dispatch(addCard(text, this.props.index));
-    // }
-
-    render() {
-        // const cards = this.props.cards.map((card, index) =>
-        //     <li key={index}>
-        //         <Card {...card} />
-        //     </li>
-        // );
+export default function LoggedOut(props) {
+    const username = props.username
+    if (!username){
         return (
             <div className="logged-out">
                 <h2>Who's the chef?</h2>
@@ -22,5 +14,8 @@ export default class LoggedOut extends React.Component {
                 </div>
             </div>
         );
+    }
+    else {
+        return (<div className="hidden"></div>)
     }
 }

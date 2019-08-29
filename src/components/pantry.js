@@ -1,22 +1,28 @@
 import React from 'react';
 
 export default function Pantry(props) {
-//   const guesses = props.guesses.map((guess, index) => (
-//     <li key={index}>
-//       {guess}
-//     </li>
-//   ));
+
+  const ingredients = props.ingredients.map((ingredient, index) => (
+    <li 
+      key={index} 
+      className="ingredients"
+      onMouseOver={() => {
+        document.getElementById(`x-${ingredient}`).classList.remove("invisible")
+      }}
+      onMouseOut={() => {
+        document.getElementById(`x-${ingredient}`).classList.add("invisible")
+      }}>
+      {ingredient}
+      <span className={"remove-ingredient invisible"} id={`x-${ingredient}`} onClick={() => {
+        props.remove(ingredient)
+      }}>x</span>
+    </li>
+  ))
 
   return (
     <div className="my-kitchen menu">
         <ul>
-            <li className="ingredients">Eggs<span className="remove-ingredient">x</span></li>
-            <li className="ingredients">Bread</li>
-            <li className="ingredients">Milk</li>
-            <li className="ingredients">Brown Sugar</li>
-            <li className="ingredients">Sausage Pepperoni Pizza with Cucumbers</li>
-            <li className="ingredients">Brown Sugar</li>
-            <li className="ingredients">Brown Sugar</li>
+          {ingredients}
         </ul>
     </div>
   );
