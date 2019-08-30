@@ -6,9 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom'
-import Kitchen from './kitchen'
-import ProfilePage from './profilepage'
-import Meals from './meals'
 
 
 export default function Nav() {

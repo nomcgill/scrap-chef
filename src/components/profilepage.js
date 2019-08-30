@@ -8,10 +8,6 @@ import {
 } from 'react-router-dom'
 import LoggedIn from './loggedin';
 import LoggedOut from './loggedout';
-import Pantry from './pantry';
-import AddingIngredient from './addingredient';
-import Menu from './menu';
-import Missing from './missing';
 
 
 export default class ProfilePage extends React.Component {

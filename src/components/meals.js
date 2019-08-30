@@ -11,17 +11,7 @@ export default class Meals extends React.Component {
     
         this.state = {
             theMissing: ["eggs", "milk", "bread", "brown sugar", "cantelope"],
-            selected: ''
         };
-    }
-
-    onRecipeSubmit(event) {
-        event.preventDefault();
-        console.log("submitted")
-        const choice = document.querySelector('input[name="meals"]:checked').value;
-        this.setState({
-            selected: choice
-        });
     }
 
     render() {
@@ -29,7 +19,7 @@ export default class Meals extends React.Component {
         return (
             <main>
                 <div className="meal-side">
-                <form name="choose-recipe" onSubmit={(e) => this.onRecipeSubmit(e)}>
+                <form name="choose-recipe" onSubmit={this.props.onRecSubmit}>
                     <div className="my-meals menu">
                         <Menu
                         ingredients={this.props.ingredients}
@@ -51,6 +41,9 @@ export default class Meals extends React.Component {
                 theMissing={this.state.theMissing}
                 ingredients={this.props.ingredients}
                 options={this.props.options}
+                remove={this.props.remove}
+                add={this.props.add}
+                onRecSubmit={this.props.onRecSubmit}
              />
         )}
     } 

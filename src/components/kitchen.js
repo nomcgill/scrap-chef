@@ -13,26 +13,23 @@ export default class Kitchen extends React.Component {
     
         this.state = {
             theMissing: ["eggs", "milk", "bread", "brown sugar", "cantelope"],
-            profile: false
         };
-        this.handleRemove = this.handleRemove.bind(this)
-        this.handleAdd = this.handleAdd.bind(this)
     }
 
-    handleRemove(item){
-        console.log(item)
-        var array = [...this.state.ingredients]
-        var index = this.state.ingredients.indexOf(item)
-        array.splice(index, 1);
-        this.setState({ingredients: array});
-    }
+    // handleRemove(item){
+    //     console.log(item)
+    //     var array = [...this.state.ingredients]
+    //     var index = this.state.ingredients.indexOf(item)
+    //     array.splice(index, 1);
+    //     this.setState({ingredients: array});
+    // }
 
-    handleAdd(item){
-        console.log(item)
-        var array = [...this.state.ingredients]
-        array.push(item);
-        this.setState({ingredients: array})
-    }
+    // handleAdd(item){
+    //     console.log(item)
+    //     var array = [...this.state.ingredients]
+    //     array.push(item);
+    //     this.setState({ingredients: array})
+    // }
   
     render() {
         return (
@@ -40,15 +37,15 @@ export default class Kitchen extends React.Component {
                 <div className="kitchen-side">
                     <Pantry 
                         ingredients={this.props.ingredients} 
-                        remove={this.handleRemove}
+                        remove={this.props.remove}
                     />
                     <AddingIngredient 
                         ingredients={this.props.ingredients} 
-                        add={this.handleAdd}
+                        add={this.props.add}
                     />
                 </div>
                 <div className="meal-side">
-                    <form name="choose-recipe">
+                    <form name="choose-recipe" onSubmit={this.props.onRecSubmit}>
                     <div className="my-meals menu">
                     <Menu
                         ingredients={this.props.ingredients}
@@ -57,7 +54,7 @@ export default class Kitchen extends React.Component {
                     <div className="recipe-info">
                         <Missing 
                         theMissing={this.state.theMissing}/>
-                        <button type="button" name="Recipe" href="">Get Recipe</button>
+                        <button type="submit" name="Recipe" href="">Get Recipe</button>
                     </div>
                     </form>
                 </div>
