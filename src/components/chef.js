@@ -1,73 +1,43 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
+import {connect} from 'react-redux';
 import {
   Route,
-  NavLink,
+//   NavLink,
   BrowserRouter as Router,
-  Switch,
+//   Switch,
 } from 'react-router-dom'
 import Tooltip from './tooltip';
 import Nav from './nav';
 import Kitchen from './kitchen';
 import Meals from './meals';
 import ProfilePage from './profilepage'
+import { resize } from '../actions'
 
-export default class Chef extends React.Component {
+export class Chef extends React.Component {
     constructor(props) {
         super(props);
-    
         this.state = {
-            window: 800,
-            username: "Sarah",
-            ingredients: ["new", "stuff", "here", "is it working?", "PIZZA"],
-            options: ["Pork Dumplings", "Mexican Pizza", "Apple Pie", "Delicious Item"],
-            selected: ''
+            username: false,
         };
-        this.handleRemove = this.handleRemove.bind(this)
-        this.handleAdd = this.handleAdd.bind(this)
+        this.updateWidth = this.updateWidth.bind(this)
     }
     
-    resize() {
-        this.setState({
-          window: window.innerWidth
-        });
+    updateWidth() {
+        this.props.dispatch(resize());
     }
 
     componentDidMount() {
-        this.resize();
-        window.addEventListener("resize", this.resize.bind(this));
+        window.addEventListener("resize", this.updateWidth);
     }
-    
+
     componentWillUnmount() {
-        window.removeEventListener("resize", this.resize.bind(this));
+        window.removeEventListener("resize", this.updateWidth);
     }
 
-    handleRemove(item){
-        var array = [...this.state.ingredients]
-        var index = this.state.ingredients.indexOf(item)
-        array.splice(index, 1);
-        this.setState({ingredients: array});
-    }
 
-    handleAdd(item){
-        var array = [...this.state.ingredients]
-        array.push(item);
-        this.setState({ingredients: array})
-    }
-
-    onRecipeSubmit(event) {
-        event.preventDefault();
-        // console.log("submitted")
-        const choice = document.querySelector('input[name="meals"]:checked').value;
-        if (choice){
-            this.setState({
-                selected: choice
-            })
-            console.log("submitted choice: " + choice)
-        }
-    }
-
-    render() {   
+    render() {
+        console.log("CHEF rendered")
         return (
             <Router>
                 <div>
@@ -82,29 +52,16 @@ export default class Chef extends React.Component {
                         <Route 
                             exact path="/" 
                             render={(props) => <Kitchen {...props} 
-                            ingredients={this.state.ingredients}
-                            options={this.state.options}
-                            remove={this.handleRemove}
-                            add={this.handleAdd}
-                            onRecSubmit={(e) => this.onRecipeSubmit(e)}
+                            // onChange={}
                             />} />
                         <Route 
                             path="/kitchen"
                             render={(props) => <Kitchen {...props} 
-                            ingredients={this.state.ingredients}
-                            options={this.state.options}
-                            remove={this.handleRemove}
-                            add={this.handleAdd}
-                            onRecSubmit={(e) => this.onRecipeSubmit(e)}
+                            // onChange={}
                             />} />
                         <Route 
                             path="/meals" 
                             render={(props) => <Meals {...props} 
-                            ingredients={this.state.ingredients}
-                            options={this.state.options}
-                            remove={this.handleRemove}
-                            add={this.handleAdd}
-                            onRecSubmit={(e) => this.onRecipeSubmit(e)}
                             />} />
                         <Route 
                             path="/profilepage" 
@@ -118,3 +75,11 @@ export default class Chef extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    window: state.window,
+    ingredients: state.ingredients,
+    options: state.options
+});
+
+export default connect(mapStateToProps)(Chef);

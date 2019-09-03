@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+// import ReactDOM from 'react-dom'
 import {
-  Route,
-  NavLink,
-  BrowserRouter as Router,
-  Switch,
+//   Route,
+  NavLink
+//   BrowserRouter as Router,
+//   Switch,
 } from 'react-router-dom'
 
 

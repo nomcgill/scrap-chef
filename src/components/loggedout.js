@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function LoggedOut(props) {
+
+export function LoggedOut(props) {
     const username = props.username
     if (!username){
         return (
@@ -8,9 +10,9 @@ export default function LoggedOut(props) {
                 <h2>Who's the chef?</h2>
                 <input className="username-input" type="text" maxLength="16" name="username" placeholder="Username" />
                 <div className="log-in-options">
-                    <button className="log-in">Log In</button>
+                    <button className="log-in" type="submit">Log In</button>
                     <p> or </p>
-                    <button className="log-out">Create Profile</button>
+                    <button className="log-out" type="button">Create Profile</button>
                 </div>
             </div>
         );
@@ -19,3 +21,9 @@ export default function LoggedOut(props) {
         return (<div className="hidden"></div>)
     }
 }
+
+const mapStateToProps = state => ({
+    username: state.username
+  });
+  
+  export default connect(mapStateToProps)(LoggedOut);

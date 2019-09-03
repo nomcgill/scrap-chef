@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+
 export default function Missing(props) {
-    
     const theMissing = props.theMissing.join(', ')
     const MySwal = withReactContent(Swal)
     
@@ -31,8 +31,4 @@ export default function Missing(props) {
             >{theMissing}</p>
         </div>
     );
-};
-
-Missing.defaultProps = {
-    text: 'None.'
 };

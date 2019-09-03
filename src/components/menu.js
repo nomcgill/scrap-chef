@@ -1,13 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function Menu(props) {
+export function Menu(props) {
 
   const options = props.options.map((option, index) => (
     <label key={index}>
       <li className="meals" >
-        <input type="radio" name="meals" value={option} required />
-        <div className="example-picture"></div>
-        <span>{option}</span>
+        <input type="radio" name="meals" value={index} required />
+        <div className="example-picture" style={{
+          content: `url(${option.thumbnail})`
+        }}></div>
+        <span>{option.title}</span>
       </li>
     </label>
   ))
@@ -19,3 +22,10 @@ export default function Menu(props) {
     </ul>
   );
 }
+
+const mapStateToProps = state => ({
+  options: state.options,
+  ingredients: state.ingredients
+});
+
+export default connect(mapStateToProps)(Menu);

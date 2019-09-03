@@ -47,12 +47,13 @@ img,li,button {
 
 .recipe-info {
     text-align: center;
-    padding-right: 10px;
+    padding: 15px 25px 15px 25px;
 }
 
-.recipe-info > * {
+.recipe-info button {
     display: inline-block;
     vertical-align: middle;
+    width: 65%;
 }
 
 .recipe-info-left {
@@ -69,7 +70,7 @@ img,li,button {
 .recipe-info button {
     border: none;
     padding: 10px;
-    background-color:rgb(121, 64, 0);
+    background-color:rgb(146, 84, 13);
     color: white;
     font-size: 1.2em;
     height: 50px;
@@ -80,7 +81,7 @@ img,li,button {
 .kitchen-side form button:hover,
 .profile-page button:hover {
     color: white;
-    background-color: rgb(173, 104, 35);
+    background-color: rgb(165, 100, 26);
     border: solid 1px white;
 }
 
@@ -90,12 +91,14 @@ img,li,button {
 
 .kitchen-side input.ingredient-input{
     padding: 5px;
-    border: 2px solid rgb(121, 64, 0);
+    color: black;
+    border: 0px solid black;
     border-radius: 4px;
-    background-color: white;
+    background-color: rgb(206, 212, 205);
     width: 70%;
     box-sizing: border-box;
     font-size: 1em;
+    border-radius: 0px;
 }
 
 .kitchen-side form {
@@ -113,13 +116,14 @@ img,li,button {
 
 .kitchen-side form button {
     border: solid 1px peru;
-    background-color:rgb(121, 64, 0);
+    background-color:rgb(146, 84, 13);
     padding: 10px;
     color: white;
 } 
 
 button {
     cursor: pointer;
+    border: solid 1px black;
 }
 
 html {
@@ -133,7 +137,7 @@ body {
     margin: 0 auto;
     padding: 0;
     max-width: 1200px;
-    background-color: rgb(190, 122, 53);
+    background-color: rgb(60, 88, 57);
     border-right: solid 1px rgb(71, 0, 0);
     border-left: solid 1px rgb(71, 0, 0);
     height: 100%;
@@ -187,6 +191,12 @@ h1 {
     line-height: 25px;
 }
 
+.swal2-confirm {
+    border-left: rgb(36, 97, 36) !important;
+    border-right: rgb(36, 97, 36) !important;
+    background-color: rgb(53, 121, 53) !important;
+}
+
 .swal2-shown { 
     padding-right: 0 !important;
 }
@@ -229,7 +239,7 @@ a > * {
 nav a:hover,
 nav .profile a:hover {
     cursor: pointer;
-    background-color: rgb(173, 104, 35);
+    background-color: rgb(81, 109, 78);
 }
 
 .folder-menu-list {
@@ -279,12 +289,13 @@ main {
     height: 75%;
     max-height: 75%;
     max-width: 450px;
-    background-color: rgb(255, 233, 209);
+    background-color: rgb(223, 149, 76);
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     border-right: solid 3px rgb(121, 64, 0);
     border-left: solid 3px rgb(121, 64, 0);
+    color: white;
 }
 
 .menu ul {
@@ -298,6 +309,10 @@ main {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.menu li {
+    border-bottom: solid 1px rgb(0, 0, 0);
 }
 
 .my-meals li span {
@@ -332,7 +347,7 @@ main {
 }
 
 .menu li:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(231, 175, 116);
     /* cursor: pointer; */
 }
 
@@ -346,11 +361,10 @@ main {
     margin: 0;
     font-size: 1.2em;
     width: 100%;
-    border-bottom: dotted 1px rgb(202, 202, 202);
     line-height: 50px;
     vertical-align: middle;
     padding-left: 10px;
-    background-color: rgb(255, 233, 209);
+    /* background-color: rgb(231, 155, 73); */
     transition: .35s;
 }
 
@@ -366,8 +380,8 @@ main {
 }
 
 .remove-ingredient:hover {
-    background-color: rgb(121, 64, 0);
-    color: white;
+    /* background-color: rgb(121, 64, 0); */
+    color: black;
 }
 
 .missing-ingredients {
@@ -385,7 +399,6 @@ main {
     height: 90px;
     width: 100%;
     text-align: left;
-    border-bottom: dotted 1px rgb(202, 202, 202);
     font-size: 1.1em;
     transition: .35s;
 }
@@ -398,9 +411,8 @@ main {
 .example-picture {
     height: 80px;
     width: 80px;
+    background-image: url("https://nolanmcgill.files.wordpress.com/2019/09/foodthumbnail.png");
     margin: 4px 9px 9px 0px;
-    /* margin-top: 4px; */
-    content:url(https://photos.bigoven.com/recipe/hero/pepperoni-jalapeno-pizza.jpg?h=300&w=300);
     -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
     filter: grayscale(75%);
     border: solid 1px black;
@@ -433,7 +445,7 @@ main {
     left       : 0;
     width      : 98%;
     height     : 85%;
-    background : peru;
+    background : rgb(60, 88, 57);
     opacity    : .95;
     filter     : blur(50px);
     -webkit-filter: blur(50px);
@@ -562,6 +574,10 @@ main > div:nth-child(2){
         max-height: 90%;
     }
     
+    .recipe-info button {
+        width: 85%;
+    }
+
     .folder-menu-list {
         display: inline-flex;
     }
@@ -591,6 +607,7 @@ main > div:nth-child(2){
 
     .folder-menu-list-item {
         border-bottom: none;
+        /* background-color: white; */
     }
     
     nav {
@@ -600,13 +617,17 @@ main > div:nth-child(2){
     nav a.profile:hover,
     nav a.profile div:hover{
         cursor:pointer;
-        background-color: rgb(214, 146, 77);
+        /* background-color: rgb(84, 114, 81); */
     }
 
     nav .profile:hover a,
     #tooltip,
     #tooltip * {
         cursor:pointer;
+    }
+
+    nav .profile:hover {
+        background-color: rgb(81, 109, 78);
     }
 
     body #tooltip {
@@ -624,7 +645,7 @@ main > div:nth-child(2){
     nav a:hover,
     nav a {
         cursor: default;
-        background-color: unset;
+        background-color: rgb(60, 88, 57);
     }
 
     .my-meals li p {
@@ -662,6 +683,7 @@ main > div:nth-child(2){
     main > div:nth-child(2){
         display: unset;
     }
+
 }
 
 @media all and (min-width: 500px) {

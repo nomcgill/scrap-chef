@@ -1,14 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class AddingIngredient extends React.Component {
+import { addToKitchen } from '../actions';
+import { fetchMenu } from '../actions';
+
+
+export class AddingIngredient extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    const text = this.textInput.value.trim();
-    if (text && this.props.add) {
-        this.props.add(text);
-    }
-    this.textInput.value = ''
+    var text = this.textInput.value.trim()
+    var run = this.props
+    var blank = this.textInput
+    var stuff = this.props.ingredients
+
+    var first = new Promise(function(resolve){
+      run.dispatch(addToKitchen(text))
+      blank.value = ''
+      console.log("first")
+      // console.log(stuff)
+      resolve()
+    });
+    first.then(function(){
+      console.log("second")
+      console.log(stuff)
+      run.dispatch(fetchMenu(stuff))
+    })
   }
 
   render (){
@@ -34,3 +51,10 @@ export default class AddingIngredient extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  options: state.options,
+  ingredients: state.ingredients
+});
+
+export default connect (mapStateToProps)(AddingIngredient);

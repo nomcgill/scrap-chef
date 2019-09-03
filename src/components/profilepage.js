@@ -1,27 +1,29 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {connect} from 'react-redux';
+// import ReactDOM from 'react-dom'
 import {
-  Route,
+//   Route,
   NavLink,
-  BrowserRouter as Router,
-  Switch,
+//   BrowserRouter as Router,
+//   Switch,
 } from 'react-router-dom'
 import LoggedIn from './loggedin';
 import LoggedOut from './loggedout';
 
 
-export default class ProfilePage extends React.Component {
+export class ProfilePage extends React.Component {
   
     render() {   
         if (window.innerWidth <= 800){
         return (
             <div className="profile-page">
                 <NavLink to="/kitchen" id="close-profile">x</NavLink>{' '}
+                <form onSubmit={(e) => this.submit(e)}>
                 <LoggedIn 
                     username={this.props.username}/>
                 <LoggedOut
                     username={this.props.username}/>
-
+                </form>
             </div>
         )}
         else {
@@ -50,10 +52,7 @@ export default class ProfilePage extends React.Component {
                         </ul>
                     </div>
                     <div className="recipe-info">
-                        <div className="recipe-info-left">
-                            <p><u>Your kitchen still needs</u> :</p>
-                            <p className ="missing-ingredients"> </p>
-                        </div>
+                        <div className="recipe-info-left"></div>
                         <button type="button" name="Recipe">Get Recipe</button>
                     </div>
                 </div>
@@ -69,3 +68,5 @@ export default class ProfilePage extends React.Component {
         );
     }}
 }
+  
+export default connect()(ProfilePage);

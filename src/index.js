@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {Provider} from 'react-redux';
+import {Provider} from 'react-redux';
+import store from './store';
+
 import Chef from './components/chef.js';
-// import store from './store';
 import './stylesheet.css';
 
 ReactDOM.render(
-  <Chef />,
+  <Provider store={store}>
+    <Chef />
+  </Provider>,
   document.getElementById('root')
 );
