@@ -13,20 +13,28 @@ export class AddingIngredient extends React.Component {
     var run = this.props
     var blank = this.textInput
     var stuff = this.props.ingredients
+    run.dispatch(addToKitchen(text))
+    blank.value = ''
 
-    var first = new Promise(function(resolve){
-      run.dispatch(addToKitchen(text))
-      blank.value = ''
-      console.log("first")
-      // console.log(stuff)
-      resolve()
-    });
-    first.then(function(){
-      console.log("second")
-      console.log(stuff)
-      run.dispatch(fetchMenu(stuff))
-    })
+    // var first = new Promise(function(resolve){
+    //   run.dispatch(addToKitchen(text))
+    //   blank.value = ''
+    //   resolve()
+    // });
+    // first.then(function(){
+
+    //   console.log(stuff)
+    //   run.dispatch(fetchMenu(stuff))
+    // })
   }
+
+//   componentDidUpdate(prevProps){
+//     console.log(prevProps.value)
+//     console.log(this.props.value)
+//     if(prevProps.value !== this.props.value){ 
+//       console.log("action")
+//      }
+//  }
 
   render (){
     return (

@@ -279,14 +279,14 @@ main {
 
 .kitchen-side,
 .meal-side {
-    height: 100%;
+    height: 120%;
 }
 
 .menu {
     margin: 0 auto;
     margin-top: 2%;
     width: 85%;
-    height: 75%;
+    height: 85%;
     max-height: 75%;
     max-width: 450px;
     background-color: rgb(223, 149, 76);
@@ -463,10 +463,10 @@ main {
     display: block;
 }
 
-.logged-in button {
+/* .logged-in button {
     margin: 0 auto;
     padding: 10px;
-}
+} */
 
 .logged-in p:first-child {
     font-size: 1.15em;
@@ -479,6 +479,10 @@ main {
 
 .chef {
     margin: 30px;
+}
+
+.save {
+    padding: 40px;
 }
 
 #close-profile {
@@ -544,6 +548,18 @@ main {
     margin: 4px;
     line-height: 30px;
     padding: 5px 8px 5px 8px;
+}
+
+.log-in-options {
+    margin: 1.2em;
+    display: inline-flex;
+}
+
+.log-out-options * {
+    font-size: 1.2em;
+    margin: 4px;
+    line-height: 30px;
+    padding: 10px 13px 10px 13px;
 }
 
 main > div:nth-child(2){
@@ -665,7 +681,7 @@ main > div:nth-child(2){
     }
 
     .menu {
-        height: 60%;
+        height: 75%;
     }
 
     .profile-page {

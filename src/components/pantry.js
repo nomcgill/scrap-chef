@@ -31,7 +31,11 @@ export class Pantry extends React.Component {
           document.getElementById(`x-${ingredient}`).classList.add("invisible")
         }}>
         {ingredient}
-        <span className={"remove-ingredient invisible"} id={`x-${ingredient}`} onClick={() => {this.getRemoving(ingredient)}}>x</span>
+        <span className={"remove-ingredient invisible"}
+         id={`x-${ingredient}`}
+         onClick={() => {this.getRemoving(ingredient)}}
+         >x
+         </span>
       </li>
     ))
     return (

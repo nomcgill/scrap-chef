@@ -13,13 +13,11 @@ import Kitchen from './kitchen';
 import Meals from './meals';
 import ProfilePage from './profilepage'
 import { resize } from '../actions'
+import { fetchMenu } from '../actions'
 
 export class Chef extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: false,
-        };
         this.updateWidth = this.updateWidth.bind(this)
     }
     
@@ -35,6 +33,14 @@ export class Chef extends React.Component {
         window.removeEventListener("resize", this.updateWidth);
     }
 
+    componentDidUpdate(prevProps){
+        // console.log(prevProps)
+        // console.log(this.props)
+        // if(prevProps !== this.props){ 
+        //     var stuff = this.props.ingredients
+        //     this.props.dispatch(fetchMenu(stuff))
+        //  }
+     }
 
     render() {
         console.log("CHEF rendered")
@@ -65,7 +71,7 @@ export class Chef extends React.Component {
                             />} />
                         <Route 
                             path="/profilepage" 
-                            render={(props) => <ProfilePage {...props} username={this.state.username}/>} />
+                            render={(props) => <ProfilePage {...props} />} />
                         {/* <Route path="/profile" component={ProfilePage} /> */}
                         {/* <Kitchen /> */}
                         {/* <Meals /> */}

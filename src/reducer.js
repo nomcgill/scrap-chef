@@ -1,10 +1,5 @@
-import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, LOG_IN, CREATE_USER, LOG_OUT, RESIZE} from './actions';
+import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, SAVE, LOG_IN, CREATE_USER, LOG_OUT, RESIZE} from './actions';
 import * as actions from './actions';
-
-const Sarah = {
-    username: "Sarah",
-    ingredients: ["cilantro", "chicken", "sour cream"]
-}
 
 var originalOptions = [
     {title: "Nothing yet!"},
@@ -12,7 +7,8 @@ var originalOptions = [
 
 const initialState = {
     window: 800,
-    username: "Sarah",
+    username: "Matilda",
+    _id: false,
     ingredients: ["eggs", "milk", "bread"],
     options: originalOptions,
     recipes: [],
@@ -63,6 +59,19 @@ export const reducer = (state = initialState, action) => {
             var href = food.href
             recipeStore.push(href)
         })
+        return Object.assign({}, state, {
+            options: newMenu,
+            recipes: recipeStore
+        })      
+    }
+    
+    if (action.type === UPDATE_MENU) {
+        let newMenu = action.menu.results;
+        var recipeStore = []
+        newMenu.forEach(function(food) {
+            var href = food.href
+            recipeStore.push(href)
+        })
 
         return Object.assign({}, state, {
             options: newMenu,
@@ -70,16 +79,42 @@ export const reducer = (state = initialState, action) => {
         })
         
     }
-    
-    if (action.type === FIND_RECIPE) {
-        let choice = action.choice;
-        console.log("fetching " + choice)
 
-        //API for finding recipe based on CHOICE
- 
+    if (action.type === FIND_RECIPE) {
+        let recipes = action.recipes
+        var choice = document.querySelector('input[name="meals"]:checked').value
+        var recipeUrl = recipes[choice]
+        console.log(recipeUrl)
+        if (choice){
+            window.open(recipeUrl)
+        }
+        else{
+            console.log("problem in submit")
+        } 
     }
 
+    if (action.type === LOG_IN) {
+        var input = action.input
+
+        return Object.assign({}, state, {
+            username: input.user,
+            ingredients: input.ingredients,
+            _id: input._id
+        })
+        
+    }
     
+    if (action.type === CREATE_USER) {
+
+        return Object.assign({}, state, {
+            username: action.newUser,
+            _id: action.insertedId
+        })   
+    }
+    
+    if (action.type === SAVE) {
+        console.log("Kitchen has been saved (REDUCER).")
+    }
 
 
 

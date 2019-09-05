@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import { atlasCreate } from '../actions'
+
 
 export function LoggedOut(props) {
     const username = props.username
@@ -8,11 +10,20 @@ export function LoggedOut(props) {
         return (
             <div className="logged-out">
                 <h2>Who's the chef?</h2>
-                <input className="username-input" type="text" maxLength="16" name="username" placeholder="Username" />
+                <input className="username-input" id="username-field" type="text" maxLength="16" name="username" placeholder="Username" />
                 <div className="log-in-options">
-                    <button className="log-in" type="submit">Log In</button>
+                    <button 
+                        className="log-in" 
+                        type="submit"
+                        >Log In
+                    </button>
                     <p> or </p>
-                    <button className="log-out" type="button">Create Profile</button>
+                    <button 
+                        className="create-profile" 
+                        type="button" 
+                        onClick={() => props.dispatch(atlasCreate(document.getElementById(`username-field`).value, props.ingredients))}
+                        >Create Profile
+                        </button>
                 </div>
             </div>
         );
@@ -23,7 +34,8 @@ export function LoggedOut(props) {
 }
 
 const mapStateToProps = state => ({
-    username: state.username
+    username: state.username,
+    ingredients: state.ingredients
   });
   
   export default connect(mapStateToProps)(LoggedOut);

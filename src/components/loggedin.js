@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-import {logOut} from '../actions'
+import { logOut } from '../actions'
+import { trySave } from '../actions'
 
 export function LoggedIn(props) {
     const username = props.username
@@ -13,28 +14,45 @@ export function LoggedIn(props) {
             <div className="logged-in">
                 <p>Logged in as:</p>
                 <p className="chef">Chef <span className="current-username bold">{username}</span></p>
-                <button 
-                    type="button" 
-                    name="Log Out" 
-                    onClick={()=> {
-                        MySwal.fire({
-                            title: <p>Hello World</p>,
-                            footer: 'Copyright 2018',
-                            onOpen: () => {
-                              MySwal.clickConfirm()
-                            }
-                          }).then(() => {
-                            return MySwal.fire(
-                              {
-                                title: '',
-                                text: "You've been logged out.",
-                                type: 'info',
-                                confirmButtonText: 'Okay'
-                              }
-                            )
-                          })
-                        props.dispatch(logOut())
-                    }}>Log Out</button>
+                <div className="log-out-options">
+                    <button
+                        type="button"
+                        name="SAVE"
+                        className="save"
+                        onClick={() => {
+                            props.dispatch(trySave(
+                                props._id,
+                                props.username,
+                                props.ingredients
+                            ))
+                        }}>
+                    Save Kitchen
+                    </button>
+                    or
+                    <button
+                        type="button" 
+                        name="Log Out" 
+                        onClick={()=> {
+                            MySwal.fire({
+                                title: <p>Hello World</p>,
+                                footer: 'Copyright 2018',
+                                onOpen: () => {
+                                MySwal.clickConfirm()
+                                }
+                            }).then(() => {
+                                return MySwal.fire(
+                                {
+                                    title: '',
+                                    text: "You've been logged out.",
+                                    type: 'info',
+                                    confirmButtonText: 'Okay'
+                                }
+                                )
+                            })
+                            props.dispatch(logOut())
+                        }}>Log Out
+                    </button>
+                </div>
             </div>
         );
     }
@@ -44,7 +62,9 @@ export function LoggedIn(props) {
 }
 
 const mapStateToProps = state => ({
-    username: state.username
+    username: state.username,
+    ingredients: state.ingredients,
+    _id: state._id
   });
   
 export default connect(mapStateToProps)(LoggedIn);

@@ -1,24 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchMenu } from '../actions'
+import { findRecipe } from '../actions'
 
 import Pantry from './pantry';
 import AddingIngredient from './addingredient';
 import Menu from './menu';
-// import {resize} from '../actions'
 
 export class Kitchen extends React.Component {
 
     onRecipeSubmit(event) {
         event.preventDefault();
-        var choice = document.querySelector('input[name="meals"]:checked').value
-        var recipeUrl = this.props.recipes[choice]
-        if (choice){
-            window.open(recipeUrl)
-        }
-        else{
-            console.log("problem in submit")
-        }
+        var recipes = this.props.recipes
+        this.props.dispatch(findRecipe(recipes))
     }
 
     componentDidMount() {
