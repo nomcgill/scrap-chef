@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A react project for brainstorming dishes with ingredients you already have.",
   "main": ".public/src/index.js",
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.3"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
