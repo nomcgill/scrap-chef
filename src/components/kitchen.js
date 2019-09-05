@@ -21,7 +21,6 @@ export class Kitchen extends React.Component {
     }
 
     render() {
-        console.log("KITCHEN rendered")
         return (
             <main>
                 <div className="kitchen-side">

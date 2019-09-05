@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addToKitchen } from '../actions';
-import { fetchMenu } from '../actions';
-
 
 export class AddingIngredient extends React.Component {
 
@@ -12,29 +10,17 @@ export class AddingIngredient extends React.Component {
     var text = this.textInput.value.trim()
     var run = this.props
     var blank = this.textInput
-    var stuff = this.props.ingredients
-    run.dispatch(addToKitchen(text))
-    blank.value = ''
+    if (this.props.ingredients.indexOf(text) === -1 ){
+        run.dispatch(addToKitchen(text))
+        blank.value = ''
+    }
+    else {
+      document.getElementById('ingredient-input').value = 'No DUPLICATES in this kitchen!'
+      setTimeout(function(){ 
+        document.getElementById('ingredient-input').value = '' }, 1500)
+    }
 
-    // var first = new Promise(function(resolve){
-    //   run.dispatch(addToKitchen(text))
-    //   blank.value = ''
-    //   resolve()
-    // });
-    // first.then(function(){
-
-    //   console.log(stuff)
-    //   run.dispatch(fetchMenu(stuff))
-    // })
   }
-
-//   componentDidUpdate(prevProps){
-//     console.log(prevProps.value)
-//     console.log(this.props.value)
-//     if(prevProps.value !== this.props.value){ 
-//       console.log("action")
-//      }
-//  }
 
   render (){
     return (
@@ -42,6 +28,7 @@ export class AddingIngredient extends React.Component {
         <input 
               type="text" 
               className="ingredient-input" 
+              id="ingredient-input"
               maxLength="25" 
               name="ingredient" 
               placeholder="What else is in your kitchen?"

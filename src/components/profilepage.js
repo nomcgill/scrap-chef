@@ -1,11 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
-// import ReactDOM from 'react-dom'
 import {
-//   Route,
   NavLink,
-//   BrowserRouter as Router,
-//   Switch,
 } from 'react-router-dom'
 
 import { fetchMenu } from '../actions'
@@ -24,12 +20,9 @@ export class ProfilePage extends React.Component {
     
         var first = new Promise(function(resolve){
             run.dispatch(atlasLogIn(text))
-            console.log("first")
             resolve()
         });
         first.then(function(){
-            console.log("second")
-            console.log(ingreds)
             run.dispatch(fetchMenu(ingreds))
             grab = ''
         })

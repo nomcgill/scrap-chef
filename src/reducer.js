@@ -1,5 +1,4 @@
 import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, SAVE, LOG_IN, CREATE_USER, LOG_OUT, RESIZE} from './actions';
-import * as actions from './actions';
 
 var originalOptions = [
     {title: "Nothing yet!"},
@@ -7,9 +6,9 @@ var originalOptions = [
 
 const initialState = {
     window: 800,
-    username: "Matilda",
+    username: false,
     _id: false,
-    ingredients: ["eggs", "milk", "bread"],
+    ingredients: ["banana", "bread", "strawberry"],
     options: originalOptions,
     recipes: [],
     selected: ''
@@ -23,7 +22,6 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === LOG_OUT) {
-        console.log("Log Out Click")
         return Object.assign({}, state, {
             window: window.innerWidth,
             username: false,
@@ -84,13 +82,9 @@ export const reducer = (state = initialState, action) => {
         let recipes = action.recipes
         var choice = document.querySelector('input[name="meals"]:checked').value
         var recipeUrl = recipes[choice]
-        console.log(recipeUrl)
         if (choice){
             window.open(recipeUrl)
         }
-        else{
-            console.log("problem in submit")
-        } 
     }
 
     if (action.type === LOG_IN) {
@@ -113,7 +107,6 @@ export const reducer = (state = initialState, action) => {
     }
     
     if (action.type === SAVE) {
-        console.log("Kitchen has been saved (REDUCER).")
     }
 
 

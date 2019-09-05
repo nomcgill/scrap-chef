@@ -20,14 +20,7 @@ export class Meals extends React.Component {
         this.props.dispatch(fetchMenu(stuff))
     }
 
-    //   componentDidUpdate(prevProps) {
-    //     if (prevProps.params.id !== this.props.params.id) {
-    //       this.fetchTrans();
-    //     }
-    //   }
-
     render() {
-        console.log("MEALS rendered")
         
         if (window.innerWidth <= 800){
             return (

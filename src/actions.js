@@ -38,12 +38,10 @@ export const updateMenu = menu => ({
 });
 
 export const fetchMenu = (ingredients) => dispatch => {
-    console.log("FETCHING!!!")
     const recipePuppy = 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?i='
     var joinedIngredients = ingredients.join(', ')
     fetch(recipePuppy + joinedIngredients + '&p=' + 1)
         .then(res => {
-            // console.log("fetched! waiting...")
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
@@ -204,8 +202,6 @@ export const atlasCreate = (userInput, ingredients) => dispatch => {
         user: userInput,
         ingredients: ingredients
     };
-    console.log(data)
-
     fetch(postURL, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -217,7 +213,6 @@ export const atlasCreate = (userInput, ingredients) => dispatch => {
         if (response.ok) {
             return response.json();
         }
-        console.log(response.statusText)
         throw new Error (response.statusText);
     })
     .then(response => {

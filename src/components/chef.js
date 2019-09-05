@@ -1,11 +1,8 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
 import {connect} from 'react-redux';
 import {
   Route,
-//   NavLink,
   BrowserRouter as Router,
-//   Switch,
 } from 'react-router-dom'
 import Tooltip from './tooltip';
 import Nav from './nav';
@@ -13,7 +10,6 @@ import Kitchen from './kitchen';
 import Meals from './meals';
 import ProfilePage from './profilepage'
 import { resize } from '../actions'
-import { fetchMenu } from '../actions'
 
 export class Chef extends React.Component {
     constructor(props) {
@@ -33,17 +29,7 @@ export class Chef extends React.Component {
         window.removeEventListener("resize", this.updateWidth);
     }
 
-    componentDidUpdate(prevProps){
-        // console.log(prevProps)
-        // console.log(this.props)
-        // if(prevProps !== this.props){ 
-        //     var stuff = this.props.ingredients
-        //     this.props.dispatch(fetchMenu(stuff))
-        //  }
-     }
-
     render() {
-        console.log("CHEF rendered")
         return (
             <Router>
                 <div>
@@ -58,12 +44,10 @@ export class Chef extends React.Component {
                         <Route 
                             exact path="/" 
                             render={(props) => <Kitchen {...props} 
-                            // onChange={}
                             />} />
                         <Route 
                             path="/kitchen"
                             render={(props) => <Kitchen {...props} 
-                            // onChange={}
                             />} />
                         <Route 
                             path="/meals" 
@@ -72,10 +56,6 @@ export class Chef extends React.Component {
                         <Route 
                             path="/profilepage" 
                             render={(props) => <ProfilePage {...props} />} />
-                        {/* <Route path="/profile" component={ProfilePage} /> */}
-                        {/* <Kitchen /> */}
-                        {/* <Meals /> */}
-                        {/* <ProfilePage /> */}
                 </div>
             </Router>
         );
