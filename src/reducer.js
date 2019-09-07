@@ -8,7 +8,7 @@ const initialState = {
     window: 800,
     username: false,
     _id: false,
-    ingredients: ["bread", "cheese", "tomato"],
+    ingredients: ["Chicken", "Avocado", "Tomato"],
     options: originalOptions,
     recipes: [],
     selected: ''

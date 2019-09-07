@@ -34,7 +34,7 @@ export class Chef extends React.Component {
             <Router>
                 <div>
                     <div role="banner" className="banner">
-                        <img src="https://nolanmcgill.files.wordpress.com/2019/08/chefshat.png" alt="Chef's Hat Logo"></img>
+                        <img src="https://nolanmcgill.files.wordpress.com/2019/09/chefshatgreen.png" alt="Chef's Hat Logo"></img>
                         <h1>SCRAP CHEF</h1>
                         <Tooltip />
                     </div>
