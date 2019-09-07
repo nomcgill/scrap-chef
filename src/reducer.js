@@ -8,7 +8,7 @@ const initialState = {
     window: 800,
     username: false,
     _id: false,
-    ingredients: ["banana", "bread", "strawberry"],
+    ingredients: ["bread", "cheese", "tomato"],
     options: originalOptions,
     recipes: [],
     selected: ''
@@ -32,6 +32,7 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === ADD_TO_KITCHEN) {
+        console.log("add to kitchen")
         let ingredient = action.ingredient;
                 
         return Object.assign({}, state, {
@@ -40,39 +41,35 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === REMOVE_FROM_KITCHEN) {
-        let item = action.item;
+        console.log("remove from kitchen")
         var array = [...state.ingredients]
-        var index = state.ingredients.indexOf(item)
-        array.splice(index, 1);
+        function checkIng(passed){
+            return passed !== action.item
+        }
 
         return Object.assign({}, state, {
-            ingredients: array
+            ingredients: array.filter(checkIng)
         })
     }
 
     if (action.type === UPDATE_MENU) {
-        let newMenu = action.menu.results;
+        console.log("udpated!")
+        let newMenu = [...state.options].filter(function(passed){
+            return passed === "None"
+        })
+        let newerMenu = [...newMenu, action.menu.results];
+        // console.log(state.options)
+        // console.log(newerMenu[0])
         var recipeStore = []
-        newMenu.forEach(function(food) {
+        newerMenu.forEach(function(food) {
             var href = food.href
             recipeStore.push(href)
         })
-        return Object.assign({}, state, {
-            options: newMenu,
-            recipes: recipeStore
-        })      
-    }
-    
-    if (action.type === UPDATE_MENU) {
-        let newMenu = action.menu.results;
-        var recipeStore = []
-        newMenu.forEach(function(food) {
-            var href = food.href
-            recipeStore.push(href)
-        })
+        // options: originalOptions,
+        // console.log(state.options)
 
         return Object.assign({}, state, {
-            options: newMenu,
+            options: newerMenu[0],
             recipes: recipeStore
         })
         

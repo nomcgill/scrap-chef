@@ -18,9 +18,9 @@ export default class Tooltip extends React.Component {
           return MySwal.fire(
             {
               title: 'Welcome To Your Kitchen!',
-              text: "This is Scrap Chef—an app where you can find options for ingredients that you're trying to put to use. Fill up your virtual kitchen here to find what's on your menu!",
+              text: "Trying to put some specific kitchen ingredients to use? The Scrap Chef can help! Fill up your virtual kitchen here to find what's on your menu.",
               type: '',
-              confirmButtonText: 'Sounds Good'
+              confirmButtonText: 'Get Cookin'
             }
           )
         })

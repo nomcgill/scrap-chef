@@ -1,29 +1,40 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export function Menu(props) {
+import {fetchMenu} from '../actions'
 
-  const options = props.options.map((option, index) => (
-    <label key={index}>
-      <li className="meals" >
-        <input type="radio" name="meals" value={index} required />
-        <div className="example-picture" style={{
-          content: `url(${option.thumbnail})`
-        }}></div>
-        <span>{option.title}</span>
-      </li>
-    </label>
-  ))
-  
+export class Menu extends React.Component {
 
-  return (
-    <ul>
-      {options}
-    </ul>
-  );
+  componentDidUpdate() {
+    var stuff = this.props
+    setTimeout(function(){ 
+      stuff.dispatch(fetchMenu(stuff.ingredients))
+     }, 1000)
+  }
+
+  render(){
+    const options = this.props.options.map((option, index) => (
+      <label key={index}>
+        <li className="meals" >
+          <input type="radio" name="meals" value={index} required />
+          <div className="example-picture" style={{
+            content: `url(${option.thumbnail})`
+          }}></div>
+          <span>{option.title}</span>
+        </li>
+      </label>
+    ))
+    
+    return (
+      <ul>
+        {options}
+      </ul>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
+  recipes: state.recipes,
   options: state.options,
   ingredients: state.ingredients
 });

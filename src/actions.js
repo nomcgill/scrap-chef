@@ -38,6 +38,7 @@ export const updateMenu = menu => ({
 });
 
 export const fetchMenu = (ingredients) => dispatch => {
+  console.log("fetched")
     const recipePuppy = 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?i='
     var joinedIngredients = ingredients.join(', ')
     fetch(recipePuppy + joinedIngredients + '&p=' + 1)
