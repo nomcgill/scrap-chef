@@ -32,7 +32,6 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === ADD_TO_KITCHEN) {
-        console.log("add to kitchen")
         let ingredient = action.ingredient;
                 
         return Object.assign({}, state, {
@@ -41,7 +40,6 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === REMOVE_FROM_KITCHEN) {
-        console.log("remove from kitchen")
         var array = [...state.ingredients]
         function checkIng(passed){
             return passed !== action.item
@@ -53,26 +51,20 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === UPDATE_MENU) {
-        console.log("udpated!")
         let newMenu = [...state.options].filter(function(passed){
             return passed === "None"
         })
         let newerMenu = [...newMenu, action.menu.results];
-        // console.log(state.options)
-        // console.log(newerMenu[0])
         var recipeStore = []
         newerMenu.forEach(function(food) {
             var href = food.href
             recipeStore.push(href)
         })
-        // options: originalOptions,
-        // console.log(state.options)
 
         return Object.assign({}, state, {
             options: newerMenu[0],
             recipes: recipeStore
         })
-        
     }
 
     if (action.type === FIND_RECIPE) {
@@ -91,22 +83,18 @@ export const reducer = (state = initialState, action) => {
             username: input.user,
             ingredients: input.ingredients,
             _id: input._id
-        })
-        
+        })        
     }
     
     if (action.type === CREATE_USER) {
-
         return Object.assign({}, state, {
             username: action.newUser,
             _id: action.insertedId
         })   
     }
-    
+
     if (action.type === SAVE) {
     }
-
-
 
     return state;
 

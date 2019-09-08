@@ -15,11 +15,6 @@ export class Meals extends React.Component {
         this.props.dispatch(findRecipe(recipes))
     }
 
-    // componentDidMount() {
-    //     var stuff = this.props.ingredients
-    //     this.props.dispatch(fetchMenu(stuff))
-    // }
-
     componentDidUpdate() {
         var stuff = this.props.ingredients
         this.props.dispatch(fetchMenu(stuff))

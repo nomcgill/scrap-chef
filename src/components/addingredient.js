@@ -19,7 +19,6 @@ export class AddingIngredient extends React.Component {
       setTimeout(function(){ 
         document.getElementById('ingredient-input').value = '' }, 1500)
     }
-
   }
 
   render (){
