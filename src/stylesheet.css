@@ -102,7 +102,7 @@ button {
     cursor: pointer;
     color: white;
     border: solid 2px white;
-    background-color: rgb(21, 56, 21);
+    background-color: peru;
 }
 
 button:hover {
@@ -162,7 +162,7 @@ h1 {
 
 #tooltip {
     position: absolute;
-    background-color: rgb(71, 131, 71);
+    background-color: peru;
     border-radius: 40px;
     color: white;
     font-size: 1.2em;
@@ -290,9 +290,6 @@ main {
     overflow-x: hidden;
     white-space: nowrap;
     color: rgb(255, 255, 255);
-}
-
-.menu {
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none;  /* Firefox */
     position: relative;
@@ -317,9 +314,14 @@ main {
     overflow: hidden;
 }
 
-.menu li {
+main li {
     border-bottom: solid 3px white;
     background-color: rgb(21, 56, 21);
+}
+
+main li:nth-child(even),
+main label:nth-child(even) li {
+    background-color: rgb(34, 75, 34);
 }
 
 .my-meals li span {
@@ -593,6 +595,7 @@ main > div:nth-child(2){
         font-size: 3em;
         width: 20%;
         text-decoration: underline;
+        color: black;
     }
 
     nav li:nth-child(2) {

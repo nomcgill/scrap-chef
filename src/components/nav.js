@@ -8,12 +8,7 @@ import {
 export class Nav extends React.Component {
 
     theUser(){
-        if (this.props.username){
-            return this.props.username
-        }
-        else {
-            return "Log In"
-        }
+        return ( this.props.username ? this.props.username : "Log In" )
     }
 
     render(){

@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchMenu } from '../actions'
 import { findRecipe } from '../actions'
 
 import Pantry from './pantry';

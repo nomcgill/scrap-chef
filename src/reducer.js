@@ -1,4 +1,4 @@
-import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, SAVE, LOG_IN, CREATE_USER, LOG_OUT, RESIZE} from './actions';
+import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, SAVE, LOG_IN, CREATE_USER, LOG_OUT, RESIZE, FIRST_CALL} from './actions';
 
 var originalOptions = [
     {title: "Nothing yet!"},
@@ -11,7 +11,8 @@ const initialState = {
     ingredients: ["Chicken", "Avocado", "Tomato"],
     options: originalOptions,
     recipes: [],
-    selected: ''
+    selected: '',
+    first: true
 };
 
 export const reducer = (state = initialState, action) => {
@@ -36,6 +37,12 @@ export const reducer = (state = initialState, action) => {
                 
         return Object.assign({}, state, {
             ingredients: [...state.ingredients, ingredient]
+        })
+    }
+
+    if (action.type === FIRST_CALL) {  
+        return Object.assign({}, state, {
+            first: false
         })
     }
 

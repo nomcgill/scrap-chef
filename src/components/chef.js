@@ -9,7 +9,7 @@ import Nav from './nav';
 import Kitchen from './kitchen';
 import Meals from './meals';
 import ProfilePage from './profilepage'
-import { resize } from '../actions'
+import { resize, firstCall, fetchMenu } from '../actions'
 
 export class Chef extends React.Component {
     constructor(props) {
@@ -23,6 +23,11 @@ export class Chef extends React.Component {
 
     componentDidMount() {
         window.addEventListener("resize", this.updateWidth);
+        if (this.props.first){
+            this.props.dispatch(firstCall())
+            var stuff = this.props.ingredients
+            this.props.dispatch(fetchMenu(stuff))
+        };
     }
 
     componentWillUnmount() {
@@ -63,6 +68,7 @@ export class Chef extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    first: state.first,
     window: state.window,
     ingredients: state.ingredients,
     options: state.options

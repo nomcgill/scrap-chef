@@ -109,6 +109,11 @@ export const atlasLogIn = (userInput) => dispatch => {
     });
 }
 
+export const FIRST_CALL = 'FIRST_CALL'
+export const firstCall = () => ({
+  type: FIRST_CALL
+})
+
 export const LOG_OUT = 'LOG_OUT';
 export const logOut = () => ({
     type: LOG_OUT
