@@ -9,7 +9,7 @@ export class Menu extends React.Component {
     var stuff = this.props
     setTimeout(function(){ 
       stuff.dispatch(fetchMenu(stuff.ingredients))
-     }, 1000)
+     }, 2000)
   }
 
   render(){
