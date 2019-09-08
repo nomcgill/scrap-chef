@@ -209,6 +209,7 @@ nav {
     text-align: center;
     display: inline-flex;
     width: 100%;
+    color: black;
 }
 
 nav * {
