@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 [LIVE](https://scrap-chef.herokuapp.com) app
+
 [Server](scrap-chef-server.herokuapp.com) repo
 
 Scrap Chef is a responsive React App for finding recipes based on ingredients by user-input. Log-in, remain anonymous—it doesn't matter. Simply gather some ingredients into your kitchen and the app will take care of the rest.
@@ -34,4 +35,4 @@ Logged in or not, a user can use the app. The app is simple in scope: add ingred
 The app's username management uses MongoDB atlas with a url-encoded endpoint. The server persists an array of objects for each username, storing only a username and their ingredients.
 
 ### Furthermore...
-For more information on the app, contact the creator (me) by his [portfolio](https://nomcgill.github.io/nolan-portfolio/).
+For more information on the app, contact the creator (me) [here](https://nomcgill.github.io/nolan-portfolio/#contact).
