@@ -26,9 +26,9 @@ export const removeFromKitchen = item => ({
 });
 
 export const FIND_RECIPE = 'FIND_RECIPE';
-export const findRecipe = recipes => ({
+export const findRecipe = options => ({
     type: FIND_RECIPE,
-    recipes
+    options
 });
 
 export const UPDATE_MENU = 'UPDATE_MENU';

@@ -11,8 +11,8 @@ export class Meals extends React.Component {
 
     onRecipeSubmit(event) {
         event.preventDefault();
-        var recipes = this.props.recipes
-        this.props.dispatch(findRecipe(recipes))
+        var options = this.props.options
+        this.props.dispatch(findRecipe(options))
     }
 
     componentDidUpdate() {

@@ -13,6 +13,29 @@
     height: 82%;
 }
 
+html {
+    height: 100%;
+    background-image: url('https://nolanmcgill.files.wordpress.com/2019/08/fresh-food1.jpg');
+    background-size: cover;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1200px;
+    background-color: rgb(255, 255, 255);
+    min-height: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
 input {
     cursor: text;
 }
@@ -25,78 +48,6 @@ img,li,button {
     user-select: none;
     transition: .2s;
 }
-
-.bold {
-    font-weight: bold;
-}
-
-.hidden {
-    display: none;
-}
-
-.meal-side {
-    width: 100%;
-}
-
-.recipe-info {
-    text-align: center;
-    padding: 15px 25px 15px 25px;
-}
-
-.recipe-info button {
-    display: inline-block;
-    vertical-align: middle;
-    width: 65%;
-}
-
-.recipe-info-left {
-    padding: 11px;
-    text-align: left;
-    width: 60%;
-}
-
-.recipe-info-left p {
-    margin: 2px;
-}
-
-.recipe-info button {
-    padding: 10px;
-    font-size: 1.2em;
-    height: 50px;
-}
-
-.kitchen-side {
-    width:100%;
-}
-
-.kitchen-side input.ingredient-input{
-    padding: 5px;
-    color: black;
-    border: 2px solid rgb(21, 56, 21);
-    border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    width: 70%;
-    box-sizing: border-box;
-    font-size: 1.1em;
-    border-radius: 0px;
-}
-
-.kitchen-side form {
-    width: 100%;
-    text-align: center;
-    padding: 15px;
-}
-
-.kitchen-side form > * {
-    height: 50px;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.2em;
-}
-
-.kitchen-side form button {
-    padding: 10px;
-} 
 
 button {
     cursor: pointer;
@@ -114,21 +65,6 @@ button:active {
     border: solid 2px rgb(21, 56, 21);
     background-color: white;
     border-radius: 2px;
-}
-
-html {
-    height: 100%;
-    background-image: url('https://nolanmcgill.files.wordpress.com/2019/08/fresh-food1.jpg');
-    background-size: cover;
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0 auto;
-    padding: 0;
-    max-width: 1200px;
-    background-color: rgb(255, 255, 255);
-    min-height: 100%;
 }
 
 .banner {
@@ -253,6 +189,12 @@ nav a:active {
     text-align:center;
 }
 
+a.folder-menu-list-item.profile,
+a.folder-menu-list-item.kitchen,
+a.folder-menu-list-item.meals {
+    color: black;
+}
+
 .active,
 .active * {
     border-bottom: none;
@@ -276,6 +218,70 @@ main {
 .meal-side {
     height: 120%;
 }
+
+.meal-side {
+    width: 100%;
+}
+
+.recipe-info {
+    text-align: center;
+    padding: 15px 25px 15px 25px;
+}
+
+.recipe-info button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 65%;
+}
+
+.recipe-info-left {
+    padding: 11px;
+    text-align: left;
+    width: 60%;
+}
+
+.recipe-info-left p {
+    margin: 2px;
+}
+
+.recipe-info button {
+    padding: 10px;
+    font-size: 1.2em;
+    height: 50px;
+}
+
+.kitchen-side {
+    width:100%;
+}
+
+.kitchen-side input.ingredient-input{
+    padding: 5px;
+    color: black;
+    border: 2px solid rgb(21, 56, 21);
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    border-radius: 0px;
+}
+
+.kitchen-side form {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.kitchen-side form > * {
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.2em;
+}
+
+.kitchen-side form button {
+    padding: 10px;
+} 
 
 .menu {
     margin: 0 auto;
@@ -304,8 +310,6 @@ main {
     height: 400px;
     position : relative;
 }
-
-
 
 .menu li,
 .menu li * {

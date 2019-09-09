@@ -75,7 +75,11 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === FIND_RECIPE) {
-        let recipes = action.recipes
+        let options = action.options
+        var recipes = []
+        options.map((option) => {
+            recipes.push(option.href)
+        })
         var choice = document.querySelector('input[name="meals"]:checked').value
         var recipeUrl = recipes[choice]
         if (choice){
