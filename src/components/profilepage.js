@@ -9,6 +9,8 @@ import { atlasLogIn } from '../actions'
 import LoggedIn from './loggedin';
 import LoggedOut from './loggedout';
 
+// ProfilePage manages the username portion of the app. 
+// It will display differently, depending on a logged-in or logged-out status.
 export class ProfilePage extends React.Component {
 
     onLogInSubmit(event) {

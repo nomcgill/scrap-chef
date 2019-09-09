@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import { removeFromKitchen } from '../actions';
 import {fetchMenu} from '../actions';
 
+// Pantry displays the current global state of the user's ingredients.
+// This component will also update the Menu component by calling fetchMenu(), which fetches new results based on user input.
 export class Pantry extends React.Component {
 
   getRemoving(ingredient){

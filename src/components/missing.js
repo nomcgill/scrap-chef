@@ -2,6 +2,9 @@ import React from 'react';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
+
+// Missing is currently unused, but is a feature which will be implemented upon further app development.
+// When menu item is selected, unused ingredients from the kitchen will be listed.
 export default function Missing(props) {
     const theMissing = props.theMissing.join(', ')
     const MySwal = withReactContent(Swal)

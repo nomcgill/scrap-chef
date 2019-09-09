@@ -11,16 +11,23 @@ import Meals from './meals';
 import ProfilePage from './profilepage'
 import { resize, firstCall, fetchMenu } from '../actions'
 
+
+//Chef houses the app, including Route paths
 export class Chef extends React.Component {
     constructor(props) {
         super(props);
         this.updateWidth = this.updateWidth.bind(this)
     }
     
+    //size is stored as a global state to adjust and update component layout and Fetches responsively
     updateWidth() {
         this.props.dispatch(resize());
     }
 
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateWidth);
+    }
+    
     componentDidMount() {
         window.addEventListener("resize", this.updateWidth);
         if (this.props.first){
@@ -28,10 +35,6 @@ export class Chef extends React.Component {
             var stuff = this.props.ingredients
             this.props.dispatch(fetchMenu(stuff))
         };
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.updateWidth);
     }
 
     render() {

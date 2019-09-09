@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 
 import { atlasCreate } from '../actions'
 
-
+// This profile page displays while the user is NOT logged in with a username.
+// They can either log in, checking and fetching from the MongoDB Atlast database, or POST a new username with atlasCreate().
 export function LoggedOut(props) {
     const username = props.username
     if (!username){

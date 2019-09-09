@@ -6,7 +6,8 @@ import { findRecipe } from '../actions'
 import Menu from './menu';
 import Kitchen from './kitchen';
 
-
+// Meals houses the Returned information of recipes based on the kitchen's "ingredients" state.
+// Meals also specifies how to display information based on size. Window width <= 800px displays only this component.
 export class Meals extends React.Component {
 
     onRecipeSubmit(event) {
@@ -21,7 +22,6 @@ export class Meals extends React.Component {
     }
 
     render() {
-        
         if (window.innerWidth <= 800){
             return (
             <main>
@@ -37,6 +37,7 @@ export class Meals extends React.Component {
                 </div>
             </main>
         )}
+        // Window is greater than 800? Display both Kitchen and Meals at once, as defaulted in the Kitchen component.
         else {
             return (
             <Kitchen />

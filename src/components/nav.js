@@ -4,7 +4,7 @@ import {
   NavLink
 } from 'react-router-dom'
 
-
+// Nav organizes and returns a formatted Navigation bar. It will display differently for mobile than for desktop.
 export class Nav extends React.Component {
 
     theUser(){

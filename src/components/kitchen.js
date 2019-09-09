@@ -6,6 +6,10 @@ import Pantry from './pantry';
 import AddingIngredient from './addingredient';
 import Menu from './menu';
 
+// Kitchen houses the user storage of ingredients. 
+// User can add to the list with the AddingIngredient component, or remove with the X div listed in pantry.
+// In CSS, when the window width <= 800, the Kitchen will list alone 
+// and occupy whole screen by hiding the Meals component content.
 export class Kitchen extends React.Component {
 
     onRecipeSubmit(event) {
