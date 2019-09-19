@@ -12,13 +12,14 @@ export class Meals extends React.Component {
 
     onRecipeSubmit(event) {
         event.preventDefault();
-        var options = this.props.options
+        let options = this.props.options
         this.props.dispatch(findRecipe(options))
     }
 
+    //when uncommented, this will constantly fetchmenu as long as the component is being assessed.
     componentDidUpdate() {
-        var stuff = this.props.ingredients
-        this.props.dispatch(fetchMenu(stuff))
+        let stuff = this.props.ingredients
+        // this.props.dispatch(fetchMenu(stuff))
     }
 
     render() {

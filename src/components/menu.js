@@ -9,7 +9,7 @@ export class Menu extends React.Component {
   // Because of HEROKU's hourly fetch limit, the component will not call fetchMenu() more than once every 2.5 seconds,
   // despite global state changes in the app.
   componentDidUpdate() {
-    var stuff = this.props
+    let stuff = this.props
     setTimeout(function(){ 
       stuff.dispatch(fetchMenu(stuff.ingredients))
      }, 2500)

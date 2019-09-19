@@ -7,9 +7,9 @@ export class AddingIngredient extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    var text = this.textInput.value.trim()
-    var run = this.props
-    var blank = this.textInput
+    let text = this.textInput.value.trim()
+    let run = this.props
+    let blank = this.textInput
     if (this.props.ingredients.indexOf(text) === -1 ){
         run.dispatch(addToKitchen(text))
         blank.value = ''

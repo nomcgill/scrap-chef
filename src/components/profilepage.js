@@ -15,12 +15,12 @@ export class ProfilePage extends React.Component {
 
     onLogInSubmit(event) {
         event.preventDefault();
-        var grab = document.getElementById("username-field").value
-        var run = this.props
-        var text = grab.trim()
-        var ingreds = this.props.ingredients
+        let grab = document.getElementById("username-field").value
+        let run = this.props
+        let text = grab.trim()
+        let ingreds = this.props.ingredients
     
-        var first = new Promise(function(resolve){
+        let first = new Promise(function(resolve){
             run.dispatch(atlasLogIn(text))
             resolve()
         });

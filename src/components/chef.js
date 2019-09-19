@@ -30,9 +30,9 @@ export class Chef extends React.Component {
     
     componentDidMount() {
         window.addEventListener("resize", this.updateWidth);
-        if (this.props.first){
+        if (this.props.first === true){
             this.props.dispatch(firstCall())
-            var stuff = this.props.ingredients
+            let stuff = this.props.ingredients
             this.props.dispatch(fetchMenu(stuff))
         };
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-var herokuAPIEndpoint = "https://scrap-chef-server.herokuapp.com/"
+let herokuAPIEndpoint = "https://scrap-chef-server.herokuapp.com/"
 
 export const updateState = (key, value)=> dispatch=>{
     dispatch({
@@ -39,7 +39,7 @@ export const updateMenu = menu => ({
 
 export const fetchMenu = (ingredients) => dispatch => {
     const recipePuppy = 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?i='
-    var joinedIngredients = ingredients.join(', ')
+    let joinedIngredients = ingredients.join(', ')
     fetch(recipePuppy + joinedIngredients + '&p=' + 1)
         .then(res => {
             if (!res.ok) {
@@ -60,7 +60,7 @@ export const logIn = input => ({
 
 export const atlasLogIn = (userInput) => dispatch => {
     const MySwal = withReactContent(Swal)
-    var GETbyUsernameURL = herokuAPIEndpoint + `find?user=` + userInput
+    let GETbyUsernameURL = herokuAPIEndpoint + `find?user=` + userInput
     fetch (GETbyUsernameURL)
     .then(response => {
         if (response.status === 404) {
@@ -131,8 +131,8 @@ export const save = () => ({
 
 export const trySave = (id, user, ingredients) => dispatch => {
     const MySwal = withReactContent(Swal)
-    var postURL = herokuAPIEndpoint + `users/` + id
-    var data = {
+    let postURL = herokuAPIEndpoint + `users/` + id
+    let data = {
         _id: id,
         user: user,
         ingredients: ingredients
@@ -202,8 +202,8 @@ export const createUser = (newUser, insertedId) => ({
 
 export const atlasCreate = (userInput, ingredients) => dispatch => {
     const MySwal = withReactContent(Swal)
-    var postURL = herokuAPIEndpoint + `users/`
-    var data = {
+    let postURL = herokuAPIEndpoint + `users/`
+    let data = {
         user: userInput,
         ingredients: ingredients
     };

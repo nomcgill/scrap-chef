@@ -1,6 +1,6 @@
 import {ADD_TO_KITCHEN, REMOVE_FROM_KITCHEN, FIND_RECIPE, UPDATE_MENU, SAVE, LOG_IN, CREATE_USER, LOG_OUT, RESIZE, FIRST_CALL} from './actions';
 
-var originalOptions = [
+let originalOptions = [
     {title: "Nothing yet!"},
     {title: "Add some ingredients from your kitchen!"}]
 
@@ -47,7 +47,7 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === REMOVE_FROM_KITCHEN) {
-        var array = [...state.ingredients]
+        let array = [...state.ingredients]
         function checkIng(passed){
             return passed !== action.item
         }
@@ -62,9 +62,9 @@ export const reducer = (state = initialState, action) => {
             return passed === "None"
         })
         let newerMenu = [...newMenu, action.menu.results];
-        var recipeStore = []
+        let recipeStore = []
         newerMenu.forEach(function(food) {
-            var href = food.href
+            let href = food.href
             recipeStore.push(href)
         })
 
@@ -76,19 +76,20 @@ export const reducer = (state = initialState, action) => {
 
     if (action.type === FIND_RECIPE) {
         let options = action.options
-        var recipes = []
+        let recipes = []
         options.map((option) => {
             recipes.push(option.href)
         })
-        var choice = document.querySelector('input[name="meals"]:checked').value
-        var recipeUrl = recipes[choice]
+        let choice = document.querySelector('input[name="meals"]:checked').value
+        let recipeUrl = recipes[choice]
         if (choice){
+            if (recipeUrl)
             window.open(recipeUrl)
         }
     }
 
     if (action.type === LOG_IN) {
-        var input = action.input
+        let input = action.input
 
         return Object.assign({}, state, {
             username: input.user,

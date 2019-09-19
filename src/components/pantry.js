@@ -8,10 +8,10 @@ import {fetchMenu} from '../actions';
 export class Pantry extends React.Component {
 
   getRemoving(ingredient){
-      var run = this.props
-      var stuff = this.props.ingredients
+      let run = this.props
+      let stuff = this.props.ingredients
   
-      var first = new Promise(function(resolve){
+      let first = new Promise(function(resolve){
         run.dispatch(removeFromKitchen(ingredient))
         resolve()
       });
