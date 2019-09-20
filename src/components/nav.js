@@ -12,7 +12,7 @@ export class Nav extends React.Component {
     }
 
     render(){
-        if (window.innerWidth <= 800){
+        if (this.props.window <= 800){
         return (
             <nav className="folder-menu">
                 <NavLink to={{pathname: '/profilepage'}} className="folder-menu-list-item profile"><div>{this.theUser()}</div></NavLink>{' '}
@@ -36,7 +36,8 @@ export class Nav extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    username: state.username
+    username: state.username,
+    window: state.window    
 })
 
 export default connect(mapStateToProps)(Nav);

@@ -58,7 +58,7 @@ export const logIn = input => ({
     input
 });
 
-export const atlasLogIn = (userInput) => dispatch => {
+export const atlasLogIn = userInput => dispatch => {
     const MySwal = withReactContent(Swal)
     let GETbyUsernameURL = herokuAPIEndpoint + `find?user=` + userInput
     fetch (GETbyUsernameURL)
@@ -87,7 +87,11 @@ export const atlasLogIn = (userInput) => dispatch => {
               }
             )
           })
-          dispatch(logIn(data))
+          dispatch(fetchMenu(data.ingredients))
+        return data          
+    })
+    .then(data => {
+      dispatch(logIn(data))
     })
     .catch (error => {
         MySwal.fire({
@@ -113,6 +117,17 @@ export const FIRST_CALL = 'FIRST_CALL'
 export const firstCall = () => ({
   type: FIRST_CALL
 })
+
+export const tryLogOut = () => dispatch => {
+  const startingIng = ["Chicken", "Avocado", "Tomato"]
+  let first = new Promise(function(resolve){
+    dispatch(logOut())
+    resolve()
+  });
+  first.then(function(){
+    dispatch(fetchMenu(startingIng))
+  })
+}
 
 export const LOG_OUT = 'LOG_OUT';
 export const logOut = () => ({

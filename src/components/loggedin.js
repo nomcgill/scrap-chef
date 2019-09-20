@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-import { logOut } from '../actions'
+import { tryLogOut } from '../actions'
 import { trySave } from '../actions'
 
 //This profile page displays while user is logged in. User can save kitchen with trySave() or log out with logOut().
@@ -50,7 +50,7 @@ export function LoggedIn(props) {
                                 }
                                 )
                             })
-                            props.dispatch(logOut())
+                            props.dispatch(tryLogOut())
                         }}>Log Out
                     </button>
                 </div>

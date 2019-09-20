@@ -8,15 +8,12 @@ export class Menu extends React.Component {
 
   // Because of HEROKU's hourly fetch limit, the component will not call fetchMenu() more than once every 2.5 seconds,
   // despite global state changes in the app.
-  componentDidUpdate() {
-    let stuff = this.props
-    setTimeout(function(){ 
-      stuff.dispatch(fetchMenu(stuff.ingredients))
-     }, 2500)
-  }
-
   render(){
-    const options = this.props.options.map((option, index) => (
+      let stuff = this.props
+      setTimeout(function(){ 
+        stuff.dispatch(fetchMenu(stuff.ingredients))
+       }, 2500)
+      const options = this.props.options.map((option, index) => (
       <label key={index}>
         <li className="meals" >
           <input type="radio" name="meals" value={index} required />

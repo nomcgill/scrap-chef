@@ -17,36 +17,36 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     if (action.type === RESIZE) {
+        console.log("RESIZE")
         return Object.assign({}, state, {
             window: window.innerWidth
         })
     }
 
     if (action.type === LOG_OUT) {
-        return Object.assign({}, state, {
-            window: window.innerWidth,
-            username: false,
-            ingredients: ["eggs", "milk", "bread"],
-            options: originalOptions,
-            selected: ''
-        });
+        console.log("LOG_OUT")
+        return initialState
     }
 
     if (action.type === ADD_TO_KITCHEN) {
+        console.log("ADD_TO_KITCHEN")
+
         let ingredient = action.ingredient;
-                
+            
         return Object.assign({}, state, {
             ingredients: [...state.ingredients, ingredient]
         })
     }
 
     if (action.type === FIRST_CALL) {  
+        console.log("FIRST_CALL")
         return Object.assign({}, state, {
             first: false
         })
     }
 
     if (action.type === REMOVE_FROM_KITCHEN) {
+        console.log("REMOVE_FROM_KITCHEN")
         let array = [...state.ingredients]
         function checkIng(passed){
             return passed !== action.item
@@ -58,6 +58,7 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === UPDATE_MENU) {
+        console.log("UPDATE_MENU")
         let newMenu = [...state.options].filter(function(passed){
             return passed === "None"
         })
@@ -67,7 +68,7 @@ export const reducer = (state = initialState, action) => {
             let href = food.href
             recipeStore.push(href)
         })
-
+        // console.log(newMenu)
         return Object.assign({}, state, {
             options: newerMenu[0],
             recipes: recipeStore
@@ -75,6 +76,7 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === FIND_RECIPE) {
+        console.log("FIND_RECIPE")
         let options = action.options
         let recipes = []
         options.map((option) => {
@@ -89,16 +91,19 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === LOG_IN) {
+        console.log("LOG_IN")
         let input = action.input
 
         return Object.assign({}, state, {
             username: input.user,
             ingredients: input.ingredients,
-            _id: input._id
+            _id: input._id,
+            first: true
         })        
     }
     
     if (action.type === CREATE_USER) {
+        console.log("CREATE_USER")
         return Object.assign({}, state, {
             username: action.newUser,
             _id: action.insertedId

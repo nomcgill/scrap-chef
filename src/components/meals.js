@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchMenu } from '../actions'
 import { findRecipe } from '../actions'
 
 import Menu from './menu';
@@ -14,12 +13,6 @@ export class Meals extends React.Component {
         event.preventDefault();
         let options = this.props.options
         this.props.dispatch(findRecipe(options))
-    }
-
-    //when uncommented, this will constantly fetchmenu as long as the component is being assessed.
-    componentDidUpdate() {
-        let stuff = this.props.ingredients
-        // this.props.dispatch(fetchMenu(stuff))
     }
 
     render() {
