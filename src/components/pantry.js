@@ -1,24 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { removeFromKitchen } from '../actions';
-import {fetchMenu} from '../actions';
+import { removeItem } from '../actions';
 
 // Pantry displays the current global state of the user's ingredients.
 // This component will also update the Menu component by calling fetchMenu(), which fetches new results based on user input.
 export class Pantry extends React.Component {
 
-  getRemoving(ingredient){
-      let run = this.props
-      let stuff = this.props.ingredients
-  
-      let first = new Promise(function(resolve){
-        run.dispatch(removeFromKitchen(ingredient))
-        resolve()
-      });
-      first.then(function(){
-        run.dispatch(fetchMenu(stuff))
-      })
-
+  getRemoving(item){
+        this.props.dispatch(removeItem(item,this.props.ingredients))
   }
 
   render() {

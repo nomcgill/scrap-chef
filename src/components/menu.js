@@ -1,18 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchMenu} from '../actions'
-
 // Menu simply formats and returns the menu of options that have been returned from the ingredients API fetch.
 export class Menu extends React.Component {
 
-  // Because of HEROKU's hourly fetch limit, the component will not call fetchMenu() more than once every 2.5 seconds,
-  // despite global state changes in the app.
   render(){
-      let stuff = this.props
-      setTimeout(function(){ 
-        stuff.dispatch(fetchMenu(stuff.ingredients))
-       }, 2500)
       const options = this.props.options.map((option, index) => (
       <label key={index}>
         <li className="meals" >

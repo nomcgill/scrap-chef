@@ -52,12 +52,12 @@ export const reducer = (state = initialState, action) => {
     }
 
     if (action.type === UPDATE_MENU) {
-        let newMenu = [...state.options].filter(function(passed){
+        let oldMenu = [...state.options].filter(function(passed){
             return passed === "None"
         })
-        let newerMenu = [...newMenu, action.menu.results];
+        let newerMenu = [...oldMenu, action.menu.results];
         let recipeStore = []
-        newerMenu.forEach(function(food) {
+        newerMenu[0].forEach(function(food) {
             let href = food.href
             recipeStore.push(href)
         })
@@ -71,7 +71,7 @@ export const reducer = (state = initialState, action) => {
         let options = action.options
         let recipes = []
         options.map((option) => {
-            recipes.push(option.href)
+            recipes.push(option)
         })
         let choice = document.querySelector('input[name="meals"]:checked').value
         let recipeUrl = recipes[choice]

@@ -17,6 +17,7 @@ export class Meals extends React.Component {
 
     render() {
         if (window.innerWidth <= 800){
+            debugger;
             return (
             <main>
                 <div className="meal-side">

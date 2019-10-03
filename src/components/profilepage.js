@@ -31,6 +31,9 @@ export class ProfilePage extends React.Component {
         return (
             <div className="profile-page">
                 <NavLink to="/kitchen" id="close-profile">x</NavLink>{' '}
+                <div id="loading-container" className="hidden">
+                    <div id="loading-gif" alt="loading-gif"></div>
+                </div>
                 <form onSubmit={(e) => {
                     this.onLogInSubmit(e)
                 }}>

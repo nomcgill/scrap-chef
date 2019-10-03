@@ -19,11 +19,37 @@ export const addToKitchen = ingredient => ({
     ingredient
 });
 
+export const addTo = (item, all) => dispatch => {
+  let first = new Promise(function(resolve){
+    dispatch(addToKitchen(item))
+    resolve()
+  });
+  first.then(function(){
+      dispatch(fetchMenu([...all,item]))
+  })
+}
+
 export const REMOVE_FROM_KITCHEN = 'REMOVE_FROM_KITCHEN';
 export const removeFromKitchen = item => ({
     type: REMOVE_FROM_KITCHEN,
     item
 });
+
+export const removeItem = (item, all) => dispatch => {
+  let first = new Promise(function(resolve){
+    dispatch(removeFromKitchen(item))
+    resolve()
+  });
+  first.then(function(){
+      let newList = []
+      all.forEach(function(ingredient){
+        if (ingredient !== item){
+          newList.push(ingredient)
+        }
+      })
+      dispatch(fetchMenu(newList))
+  })
+}
 
 export const FIND_RECIPE = 'FIND_RECIPE';
 export const findRecipe = options => ({
@@ -38,18 +64,18 @@ export const updateMenu = menu => ({
 });
 
 export const fetchMenu = (ingredients) => dispatch => {
-    const recipePuppy = 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?i='
-    let joinedIngredients = ingredients.join(', ')
-    fetch(recipePuppy + joinedIngredients + '&p=' + 1)
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
-        .then(menu => {
-            dispatch(updateMenu(menu));
-        });
+  const recipePuppy = 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?i='
+  let joinedIngredients = ingredients.join(', ')
+  fetch(recipePuppy + joinedIngredients + '&p=' + 1)
+      .then(res => {
+          if (!res.ok) {
+              return Promise.reject(res.statusText);
+          }
+          return res.json();
+      })
+      .then(menu => {
+          dispatch(updateMenu(menu));
+      });
 }
 
 export const LOG_IN = 'LOG_IN';
@@ -59,6 +85,8 @@ export const logIn = input => ({
 });
 
 export const atlasLogIn = userInput => dispatch => {
+    var loadingSwirl = document.getElementById("loading-container")
+    loadingSwirl.classList.remove("hidden")
     const MySwal = withReactContent(Swal)
     let GETbyUsernameURL = herokuAPIEndpoint + `find?user=` + userInput
     fetch (GETbyUsernameURL)
@@ -69,6 +97,10 @@ export const atlasLogIn = userInput => dispatch => {
         if (response.status === 200) {
             return response.json();
         }
+    })
+    .then(response => {
+        loadingSwirl.classList.add("hidden")
+        return response
     })
     .then(data => {
         MySwal.fire({
@@ -94,7 +126,8 @@ export const atlasLogIn = userInput => dispatch => {
       dispatch(logIn(data))
     })
     .catch (error => {
-        MySwal.fire({
+      loadingSwirl.classList.add("hidden")
+      MySwal.fire({
             title: <p>Hello World</p>,
             footer: 'Copyright 2018',
             onOpen: () => {
@@ -216,6 +249,8 @@ export const createUser = (newUser, insertedId) => ({
 });
 
 export const atlasCreate = (userInput, ingredients) => dispatch => {
+    var loadingSwirl = document.getElementById("loading-container")
+    loadingSwirl.classList.remove("hidden")
     const MySwal = withReactContent(Swal)
     let postURL = herokuAPIEndpoint + `users/`
     let data = {
@@ -230,6 +265,7 @@ export const atlasCreate = (userInput, ingredients) => dispatch => {
       }
     })
     .then(response => {
+        loadingSwirl.classList.add("hidden")
         if (response.ok) {
             return response.json();
         }
@@ -281,5 +317,4 @@ export const atlasCreate = (userInput, ingredients) => dispatch => {
             )
           })
     });
-
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToKitchen } from '../actions';
+import { addTo } from '../actions';
 
 export class AddingIngredient extends React.Component {
 
@@ -11,7 +11,7 @@ export class AddingIngredient extends React.Component {
     let run = this.props
     let blank = this.textInput
     if (this.props.ingredients.indexOf(text) === -1 ){
-        run.dispatch(addToKitchen(text))
+        run.dispatch(addTo(text,run.ingredients))
         blank.value = ''
     }
     else {

@@ -23,7 +23,7 @@ export default class Tooltip extends React.Component {
               title: 'Welcome To Your Kitchen!',
               text: "Trying to put some specific kitchen ingredients to use? The Scrap Chef can help! Fill up your virtual kitchen here to find what's on your menu.",
               type: '',
-              confirmButtonText: 'Get Cookin'
+              confirmButtonText: `Get Cookin'`
             }
           )
         })
